@@ -1,0 +1,450 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Variables to be used throughout doc */
+
+:root {
+  --ff-header: 'Amaranth', sans-serif;
+  --ff-body: 'Open Sans', sans-serif;
+  --ff-style: 'Sacramento', cursive;
+
+  --fw-reg: 400;
+  --fw-bold: 700;
+
+  --colour-light: #f5f5fd;
+  --colour-dark: #303030;
+  --colour-style: rgb(238,130,238);
+  --colour-style-fade: rgba(238,130,238,0.7);
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --fs-h1: 4rem;
+    --fs-h2: 3rem;
+    --fs-h3: 2rem;
+    --fs-body: 1.25rem;
+  }
+}
+
+/* specific styling */
+
+body {
+  background: var(--colour-light);
+  color: var(--colour-dark);
+  margin: 0;
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+section {
+  padding: 5em 2em;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+.section__title {
+  margin-bottom: 0.25em;
+  vertical-align: middle;
+}
+
+.section__title--intro {
+  font-weight: var(--fw-reg);
+  color: var(--colour-light);
+}
+
+.section__subtitle {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-reg);
+  color: var(--colour-style);
+}
+
+.section__subtitle--intro {
+  margin: 0;
+  margin-left: 5em;
+  margin-right: 5em;
+  background: var(--colour-style);
+  background: var(--colour-style-fade);
+  font-family: var(--ff-style);
+  color: var(--colour-light);
+}
+
+
+/* So I can fill the screen with intro */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  display: none;
+}
+
+/* Introduction */
+
+.intro {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url(img/italy/BaroloHills.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro__text {
+  position: relative;
+  text-align: center;
+  vertical-align: bottom;
+  top: 46.5%;
+}
+
+
+/* Welcome navigation */
+
+nav.welcome__navigation {
+  width:100%;
+  background-color: var(--colour-style-fade);
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0em 0;
+  padding: 0;
+}
+
+.welcome__navigation-list {
+  top: 0px;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+}
+
+.welcome--nav__item {
+  display: inline-block;
+  margin-left: 25px;
+}
+.welcome--nav__item a {
+  font-size: 14px;
+  text-align: none;
+  padding: 10px 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--colour-light);
+}
+.welcome--nav__item a:hover {
+  background-color: var(--colour-style);
+  padding: 10px 14px;
+}
+.welcome--nav__item a:active{
+  background-color: var(--colour-light);
+  color: var(--colour-dark);
+  padding: 10px 14px;
+}
+
+
+/* overlooking */
+
+.overlooking__image {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.solo_text {
+  padding: 5em 0;
+  position: relative;
+  text-align: center;
+}
+
+/* World tour */
+.barolo {
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: auto 65%;
+  grid-template-areas:
+  "pic text";
+}
+.me_grapes {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  grid-area: pic;
+}
+
+.lorem {
+  grid-area: text;
+}
+
+
+
+/* Review section */
+
+
+.reviews {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: auto 33.33% 33.33%;
+}
+.reviews__item {
+  margin: 3px;
+  position: relative;
+  transition:
+    transform 0.5s linear,
+    opacity 0.25s linear;
+}
+.review_img:hover {
+  opacity: 0.5;
+}
+.review__text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: var(--colour-style-fade);
+}
+.text_text {
+  color: var(--colour-light);
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.reviews__item:hover .review__text {
+  opacity: 1;
+}
+
+/* Physical Layouts */
+
+.etr2020 {
+  display: grid;
+  grid-template-columns: auto 50%;
+  grid-template-areas: "title pic";
+  position: relative;
+}
+
+.etr-pic {
+  grid-area: pic;
+}
+.etr-title {
+  grid-area: title;
+  position: absolute;
+  text-align: center;
+  padding-right: 40px;
+  top: 10%;
+}
+.etr-title h3 {
+  color: var(--colour-style);
+}
+.etr__link {
+  text-decoration: none;
+  color: var(--colour-style);
+}
+.etr__link:hover{
+  text-decoration: underline;
+  color: var(--colour-style);
+}
+
+.trailing_images {
+  padding-top: 35px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% auto;
+}
+.trail-img {
+  padding: 0 5px;
+  max-width: 350px;
+}
+
+
+/* Studies section */
+.subject__title {
+  position: relative;
+}
+.subject__image {
+  max-height: 200px;
+  padding: 15px 0;
+}
+
+/* Reading timeline */
+
+.reading__photo {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section__title--read {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.reading__timeline {
+  position: relative;
+  margin: 50px auto;
+  width: 100%;
+  padding: 40px 0;
+}
+.reading__timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--colour-style-fade);
+}
+
+.reading__timeline ul {
+  margin: 0;
+  padding: 0;
+}
+.reading__timeline ul li {
+  list-style: none;
+  position: relative;
+  width:50%;
+  padding: 20px 40px;
+  clear: both;
+}
+.reading__timeline ul li:nth-child(even) {
+  float: left;
+  text-align: right;
+}
+.reading__timeline ul li:nth-child(odd) {
+  float: right;
+  text-align: left;
+}
+.reading__content {
+  padding-bottom: 20px;
+}
+.reading__timeline ul li:nth-child(odd)::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: -4.75px;
+  width: 10px;
+  height: 10px;
+  background: var(--colour-style);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--colour-style-fade);
+}
+.reading__timeline ul li:nth-child(even)::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: -5.75px;
+  width: 10px;
+  height: 10px;
+  background: var(--colour-style);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--colour-style-fade);
+}
+.book__date {
+  font-weight: var(--fw-bold);
+}
+.reading__timeline ul li:nth-child(odd) .book__date {
+  position: absolute;
+  top: 18px;
+  left: -11em;
+}
+.reading__timeline ul li:nth-child(even) .book__date {
+  position: absolute;
+  top: 18px;
+  right: -11em;
+}
+.book__title h3 {
+  margin: 0;
+  padding: 0;
+}
+.book__title a {
+  text-decoration: none;
+  color: var(--colour-style);
+}
+.book__title a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+
+/* final images */
+
+.img_duo {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.img__img {
+  position: relative;
+  padding: 0 10px;
+  text-align: center;
+}
+
+
+/* Footer */
+
+footer {
+  background: var(--colour-style);
+  text-align: center;
+  padding: 2em 0;
+}
+.footer__email,
+.footer__link {
+  color: var(--colour-light);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  text-decoration: none;
+}
+.footer__link:hover,
+.footer__email:hover {
+  opacity: 0.7;
+}
+.footer__email:hover {
+  text-decoration: underline;
+}
+.footer__link-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+  padding: 0;
+}
+.footer__item {
+  margin: 0 0.5em;
+}
